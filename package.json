@@ -31,9 +31,9 @@
   "author": "",
   "license": "All rights reserved",
   "bugs": {
-    "url": "https://github.com/testreact3002/components/issues"
+    "url": "https://github.com/testreact3002/map/issues"
   },
-  "homepage": "https://github.com/testreact3002/components#readme",
+  "homepage": "https://github.com/testreact3002/map#readme",
   "devDependencies": {
     "@babel/core": "^7.17.9",
     "@babel/eslint-parser": "^7.17.0",

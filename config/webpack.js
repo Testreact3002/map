@@ -17,12 +17,12 @@ module.exports = {
    optimization: {
        minimize: false,
     },
-    resolve: {	
+    resolve: {
       modules: [
-	    ...paths, 
+	    ...paths,
 	    "node_modules"
       ],
-    },	
+    },
     module: {
         rules: [{
             test: /\.js$/,
@@ -38,7 +38,7 @@ module.exports = {
             test: /\.css$/,
             use: [
                   { loader: "style-loader" },
-                  { 
+                  {
 		    loader: "css-loader",
 		    options : {
                       modules : false
@@ -48,7 +48,10 @@ module.exports = {
         },
         {
             test: /\.(png|jpg|gif)$/,
-            include: paths.map( p =>  new RegExp(path.normalize(p)+"[^/]+/img/")), 
+            include: [
+              ...paths.map( p =>  new RegExp(path.normalize(p)+"[^/]+/img/")),
+              path.resolve("node_modules")
+            ],
             use: [
                 {
                     loader: 'file-loader',
@@ -57,11 +60,14 @@ module.exports = {
                     }
                 }
             ]
-            
+
         },
         {
             test: /\.(svg)$/,
-            include: paths.map( p =>  new RegExp(path.normalize(p)+"[^/]+/img/")), 
+            include: [
+              ...paths.map( p =>  new RegExp(path.normalize(p)+"[^/]+/img/")),
+              path.resolve("node_modules")
+            ],
             use: [
                 {
                     loader: 'file-loader',
@@ -70,7 +76,7 @@ module.exports = {
                     }
                 }
             ]
-            
+
         }
         ]
     },

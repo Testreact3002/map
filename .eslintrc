@@ -1,0 +1,100 @@
+{
+"parser": "@babel/eslint-parser",
+
+ "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src", "lib"]
+      }
+    }
+  },
+
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": [
+        "airbnb",
+        /*"react-app",*/
+        "eslint:recommended",
+        "fixable-all",
+        "prettier",
+        ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react",
+        "prettier",
+        "sort-imports-es6-autofix",
+
+    ],
+    "rules": {
+        "eqeqeq": off,
+        "react/jsx-filename-extension": off,
+        "indent": [
+            "error",
+            2
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-mixed-spaces-and-tabs": 2,
+        "prettier/prettier": "error",
+        "sort-imports-es6-autofix/sort-imports-es6": [2, {
+          "ignoreCase": false,
+          "ignoreMemberSort": false,
+          "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+        }],
+        "sort-imports": ["off", {
+          "ignoreCase": false,
+          "ignoreMemberSort": false,
+          "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+       }],
+       "require-jsdoc": ["error", {
+         "require": {
+           "FunctionDeclaration": true,
+           "MethodDefinition": false,
+           "ClassDeclaration": true,
+           "ArrowFunctionExpression": false,
+           "FunctionExpression": false
+         }
+       }],
+       "no-bitwise":[ "error",
+	       {
+	       "int32Hint" : true
+	       }
+       
+       ],
+       "react/require-default-props": ["off",{}]
+
+    },
+    "overrides": [
+      {
+        "files": [
+		"stories/*.js",
+		"*/*/stories/*.js"
+	], 
+        "rules": {
+          "import/no-extraneous-dependencies": off,
+          "require-jsdoc": "off"
+        }
+      }
+    ]
+
+}
